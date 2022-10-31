@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: grey;
+
+}
+
+.containerLogo{
+    padding-left: 20px;
+}
+
+.containerMenu ul{
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px
+    
+
+}
+li{
+    list-style: none;
+    padding-right: 20px;
+
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
