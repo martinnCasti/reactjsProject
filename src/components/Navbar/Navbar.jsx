@@ -1,29 +1,37 @@
-import "./navbar.css"
+import "./navbar.css";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
-function Navbar(){
-
-    return(
-        <navbar className="container">
-            <div className="containerLogo">
-            <ul>
-                <li><a href="/">Perrunos y Felinos</a></li>
-            </ul>
-            </div>
-            <div className="containerMenu"> 
-            <ul>
-                <li><a href="/">Perros</a></li>
-                <li><a href="/">Gatos</a></li>
-                <li><a href="/">Contacto</a></li>
-                <li><CartWidget/></li>
-            </ul>
-            </div>
-
-            
-            
-        </navbar>
-    );
-
+function Navbar() {
+  return (
+    <nav className="container">
+      <div className="containerLogo">
+        <ul>
+          <li>
+            <Link className="links" to="/">
+              RealCars
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="containerMenu">
+        <ul>
+          <li>
+            <Link to="/category/New">New Cars</Link>
+          </li>
+          <li>
+            <Link to="/category/Used">Used Cars</Link>
+          </li>
+          <li>
+            <Link to="/">Contact</Link>
+          </li>
+          <li>
+            <CartWidget />
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;

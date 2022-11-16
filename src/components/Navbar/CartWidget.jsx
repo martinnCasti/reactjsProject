@@ -1,11 +1,11 @@
-import "./navbar.css"
-
+import "./navbar.css";
+import IconSVG from "./IconSVG";
 function CartWidget() {
   return (
     <div className="containerMenu">
-      <a href="/">🛒</a>
+      <IconSVG />
     </div>
-  )
+  );
 }
 
-export default CartWidget
+export default CartWidget;

@@ -1,0 +1,20 @@
+import "./itemdetail.css";
+
+function ItemDetail({ product }) {
+  return (
+    <div className="card-detail">
+      <div className="card-detail_img">
+        <img src={product.imgurl} alt="Product img" />
+      </div>
+      <div className="card-detail_detail">
+        <h2>{product.made}</h2>
+        <h3>{product.model}</h3>
+        <p>{product.description}</p>
+        <h4 className="priceTag">$ {product.price}</h4>
+      </div>
+      {/* <ItemCount stock={product.stock}/> */}
+    </div>
+  );
+}
+
+export default ItemDetail;
