@@ -1,6 +1,5 @@
 import React from "react";
 import MyButton from "../Button/MyButton";
-import ItemCount from "./ItemCount";
 import "./item.css";
 import { Link } from "react-router-dom";
 
@@ -15,16 +14,13 @@ function Item(props) {
         <h2>{props.made}</h2>
         <h3>{props.model}</h3>
         <p>{props.category}</p>
-        <p>${props.stock}</p>
+        <p>Disponible: {props.stock}</p>
         <p>${props.price}</p>
       </div>
 
       <Link to={urlDetail}>
-        <MyButton text="More Detail" color="blue" />
+        <MyButton color="blue">More Detail</MyButton>
       </Link>
-      <div>
-        <ItemCount />
-      </div>
     </div>
   );
 }
