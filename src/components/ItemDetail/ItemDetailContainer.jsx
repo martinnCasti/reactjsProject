@@ -6,18 +6,23 @@ import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
 
   async function getItemDetailAsync() {
     //para el manejo de errores con el async await, se utiliza el try/catch
-    let response = await getItemDetail(id);
-    setProduct(response);
+    getItemDetail(id).then((response) => {
+      setProduct(response);
+      setIsLoading(false);
+    });
   }
 
   useEffect(() => {
     getItemDetailAsync();
   }, []);
+
+  if (isLoading) return <h3>Loading...</h3>;
 
   return <ItemDetail product={product} />;
 

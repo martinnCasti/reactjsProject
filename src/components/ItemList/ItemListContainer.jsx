@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import Item from "./Item";
+import ItemList from "./ItemList";
 import "./itemList.css";
 import getItems from "../../Services/mockService";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function ItemListContainer(prop) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
 
   const { id } = useParams();
 
@@ -27,22 +28,7 @@ function ItemListContainer(prop) {
       <div className="container title">
         <h1>Products</h1>
       </div>
-      <div className="container products">
-        {products.map((element) => {
-          return (
-            <Item
-              key={element.id}
-              id={element.id}
-              made={element.made}
-              model={element.model}
-              stock={element.stock}
-              price={element.price}
-              category={element.category}
-              imgurl={element.imgurl}
-            />
-          );
-        })}
-      </div>
+      {products ? <ItemList products={products} /> : <Loader />}
     </>
   );
 }

@@ -5,6 +5,7 @@ const products = [
     model: "G-Class",
     stock: 1,
     price: 207069,
+    discount: "20%",
     category: "Used",
     imgurl: "https://www.km77.com/images/medium/1/5/4/9/002.301549.jpg",
     description:
@@ -14,8 +15,9 @@ const products = [
     id: 2,
     made: "Mercedes-Benz",
     model: "GL-Class",
-    stock: 1,
+    stock: 0,
     price: 284733,
+    discount: "10%",
     category: "New",
     imgurl: "https://www.km77.com/images/medium/1/5/4/9/002.301549.jpg",
     description:

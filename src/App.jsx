@@ -3,6 +3,7 @@ import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartContextProvider } from "./context/cartContext";
+import CartView from "./components/CartView/CartView";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               path="*"
               element={<h1>Error 404: Esta pagina no existe</h1>}
             />
+            <Route path="/cart" element={<CartView />} />
           </Routes>
         </header>
       </BrowserRouter>

@@ -14,12 +14,17 @@ function Item(props) {
         <h2>{props.made}</h2>
         <h3>{props.model}</h3>
         <p>{props.category}</p>
-        <p>Disponible: {props.stock}</p>
+        {props.stock <= 0 ? (
+          <p>Sin stock disponible</p>
+        ) : (
+          <p>Disponible: {props.stock}</p>
+        )}
         <p>${props.price}</p>
+        {props.discount && <p>Discount: {props.discount}</p>}
       </div>
 
       <Link to={urlDetail}>
-        <MyButton color="blue">More Detail</MyButton>
+        <MyButton color={props.stock <= 0 && "grey"}>More Detail</MyButton>
       </Link>
     </div>
   );
