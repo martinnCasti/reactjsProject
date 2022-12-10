@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import {
   collection,
@@ -8,6 +9,7 @@ import {
   doc,
   query,
   where,
+  addDoc,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
@@ -73,3 +75,21 @@ export async function getItemsByCategory(categoryParams) {
 
   return documentsData;
 }
+
+export async function createOrder(order) {
+  //4. Enviar la orden a Firebase
+  const collectionOrdRef = collection(DB, "orders");
+
+  const docOrder = await addDoc(collectionOrdRef, order);
+
+  console.log(docOrder.id);
+  return docOrder.id;
+}
+// export async function exportArrayToFirestore() {
+//   const collectionRef = collection(DB, "vehicules");
+
+//   for (let item of products) {
+//     let docOrder = await addDoc(collectionRef, item);
+//     console.log("DOcumento creado, id: ", docOrder.id);
+//   }
+// }

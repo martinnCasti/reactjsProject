@@ -31,15 +31,21 @@ export function CartContextProvider(props) {
     return total;
   }
 
+  function priceInCart() {
+    //calcular el costo total de la compra
+    let totalPrice = 0;
+    cart.forEach(
+      (product) => (totalPrice = totalPrice + product.price * product.cantidad)
+    );
+    return totalPrice;
+  }
+
   function clearCart() {
     //vaciar el estado
   }
 
   function removeItem(idRemove) {
     //Utilizar filter cart.filter=> filtrar todos los items con un ID diferente a "idRemove"
-  }
-  function priceInCart() {
-    //calcular el costo total de la compra
   }
 
   //Agregar todas las funciones que se generen en el context al const value para que no de error de "is not a Function"
