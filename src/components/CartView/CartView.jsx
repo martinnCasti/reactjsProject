@@ -10,7 +10,7 @@ function CartView() {
   return (
     <div className="cart-container">
       {cart.map((item) => (
-        <div>
+        <div key={item.id}>
           <h2>{item.title}</h2>
           <h2>${item.price}</h2>
           <h2>Unidades: {item.count}</h2>

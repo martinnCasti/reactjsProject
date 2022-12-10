@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import "./itemList.css";
-import getItems from "../../Services/mockService";
+import getItems, { getItemsByCategory } from "../../Services/firestore";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
@@ -11,9 +11,14 @@ function ItemListContainer(prop) {
   const { id } = useParams();
 
   async function getItemsAsync() {
-    //para el manejo de errores con el async await, se utiliza el try/catch
-    let response = await getItems(id);
-    setProducts(response);
+    if (id) {
+      let response = await getItemsByCategory(id);
+      setProducts(response);
+    } else {
+      //para el manejo de errores con el async await, se utiliza el try/catch
+      let response = await getItems();
+      setProducts(response);
+    }
   }
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function CartWidget() {
   const myContext = useContext(cartContext);
-  console.log(myContext);
+
   return (
     <div className="containerMenu">
       <Link to="/cart">
