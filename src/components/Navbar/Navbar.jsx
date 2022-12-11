@@ -23,9 +23,6 @@ function Navbar() {
             <Link to="/category/Used">Used Cars</Link>
           </li>
           <li>
-            <Link to="/">Contact</Link>
-          </li>
-          <li>
             <CartWidget />
           </li>
         </ul>
