@@ -42,10 +42,13 @@ export function CartContextProvider(props) {
 
   function clearCart() {
     //vaciar el estado
+    setCart([]);
   }
 
   function removeItem(idRemove) {
-    //Utilizar filter cart.filter=> filtrar todos los items con un ID diferente a "idRemove"
+    const newCart = [...cart];
+    newCart.pop();
+    setCart(newCart);
   }
 
   //Agregar todas las funciones que se generen en el context al const value para que no de error de "is not a Function"

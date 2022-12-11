@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
 import { createOrder } from "../../Services/firestore";
 import MyButton from "../Button/MyButton";
+import CartForm from "./CartForm";
+import "./cartView.css";
 
 function CartView() {
-  const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
+  const { cart, removeItem, clearCart, priceInCart } = useContext(cartContext);
   let navigate = useNavigate();
 
   // function handleExport() {
@@ -15,14 +17,10 @@ function CartView() {
 
   if (cart.length === 0) return <h1>Carrito Vacio</h1>;
 
-  async function handleCheckout(event) {
+  async function handleCheckout(evt, data) {
     //Crear objeto de orden de compra
     const order = {
-      buyer: {
-        name: "Martin",
-        email: "martin@gmail.com",
-        phone: "1234567",
-      },
+      buyer: data,
       items: cart,
       total: priceInCart(),
       date: new Date(),
@@ -34,19 +32,21 @@ function CartView() {
 
   return (
     <div className="cart-container">
-      {cart.map((item) => (
-        <div key={item.id}>
-          <h2>{item.title}</h2>
-          <h2>${item.price}</h2>
-          <h2>Unidades: {item.count}</h2>
-          <MyButton onClick={() => removeItem(item.id)} color="red">
-            X
-          </MyButton>
-        </div>
-      ))}
-      <MyButton onClick={handleCheckout}>Finalizar compra</MyButton>
-
-      <MyButton onClick={() => clear()}>Vaciar Carrito</MyButton>
+      <div className="cart-itemsList">
+        {cart.map((item) => (
+          <div key={item.id} className="cart-item">
+            <img src={item.imgurl} alt={item.title} />
+            <h2>{item.title}</h2>
+            <h4>${item.price}</h4>
+            <h4>unidades: {item.count}</h4>
+            <MyButton onClick={() => removeItem(item.id)} color="red">
+              X
+            </MyButton>
+          </div>
+        ))}
+      </div>
+      <CartForm onSubmit={handleCheckout} />
+      <MyButton onClick={() => clearCart()}>Vaciar carrito</MyButton>
     </div>
   );
 }
