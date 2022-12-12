@@ -1,4 +1,4 @@
-#Welcome to the realCars proyect, your next car is here.
+# Welcome to the realCars proyect, your next car is here.
 
 Check the models and reserve your best option
 
@@ -54,7 +54,7 @@ react-bootstrap": "^2.5.0",
 react-dom": "^18.2.0",
 react-router-dom": "^6.4.3"
 
-### Profedor: Santiago Salkin
+### Profesor: Santiago Salkin
 
 ### CoderHouse Course
 
